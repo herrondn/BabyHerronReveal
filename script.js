@@ -2,7 +2,7 @@
 const GENDER = "boy"; // "boy" or "girl"
 
 // Set your reveal date/time (local time)
-const revealDate = new Date("2026-01-01T12:00:00").getTime();
+const revealDate = new Date("2025-12-30T03:00:00").getTime();
 
 const countdownEl = document.getElementById("countdown");
 const countdownContainer = document.getElementById("countdown-container");
