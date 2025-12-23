@@ -3,7 +3,8 @@
 const GENDER = "boy"; // "boy" or "girl"
 
 // Set your reveal date/time (local time)
-const revealDate = new Date("2025-12-29T21:00:00").getTime();
+// const revealDate = new Date("2025-12-29T21:00:00").getTime();
+const revealDate = new Date("2025-12-22T21:40:00").getTime();
 
 const startButton = document.getElementById("start-button");
 const startScreen = document.getElementById("start-screen");
