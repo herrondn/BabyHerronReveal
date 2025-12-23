@@ -16,13 +16,16 @@ const music = document.getElementById("music");
 
 let interval;
 
+/* 🎨 Gender-based confetti colors */
+const confettiColors = GENDER === "boy"
+  ? ["#9ad0ff", "#6bbcff", "#ffffff"]
+  : ["#ffb6c1", "#ff8fa3", "#ffffff"];
+
 startButton.addEventListener("click", () => {
   startScreen.classList.add("hidden");
   countdownContainer.classList.remove("hidden");
 
-  music.volume = 0.4;
-  music.play();
-
+  fadeInMusic();
   startCountdown();
 });
 
@@ -46,19 +49,56 @@ function startCountdown() {
   }, 1000);
 }
 
+/* 🎵 Music fade-in */
+function fadeInMusic() {
+  music.volume = 0;
+  music.play();
+
+  let volume = 0;
+  const fade = setInterval(() => {
+    volume += 0.02;
+    if (volume >= 0.4) {
+      music.volume = 0.4;
+      clearInterval(fade);
+    } else {
+      music.volume = volume;
+    }
+  }, 100);
+}
+
+/* 🎵 Music fade-out */
+function fadeOutMusic() {
+  let volume = music.volume;
+  const fade = setInterval(() => {
+    volume -= 0.02;
+    if (volume <= 0) {
+      music.pause();
+      music.currentTime = 0;
+      clearInterval(fade);
+    } else {
+      music.volume = volume;
+    }
+  }, 100);
+}
+
 function reveal() {
-  music.pause();
-  music.currentTime = 0;
+  fadeOutMusic();
 
   countdownContainer.classList.add("hidden");
   revealContainer.classList.remove("hidden");
 
+  /* 🎨 Full-screen color reveal */
   document.body.classList.add(GENDER);
+
+  /* 🍼 Reveal text */
   revealText.textContent = GENDER.toUpperCase();
 
+  /* 🎊 Gender-matching confetti */
   confetti({
-    particleCount: 250,
-    spread: 100,
+    particleCount: 300,
+    spread: 120,
+    colors: confettiColors,
     origin: { y: 0.6 }
   });
 }
+
