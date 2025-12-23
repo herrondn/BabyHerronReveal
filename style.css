@@ -1,12 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   transition: background-color 1s ease;
 }
 
@@ -14,26 +23,45 @@ body {
   display: none;
 }
 
+#start-screen {
+  position: absolute;
+}
+
+#start-button {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
 #countdown-container h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: white;
+  text-shadow: 2px 2px 5px black;
 }
 
 #countdown {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 7vw, 4rem);
   font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 5px black;
 }
 
 #reveal-container h1 {
-  font-size: 6rem;
+  font-size: clamp(3rem, 10vw, 6rem);
   color: white;
 }
 
-/* Gender colors */
+/* Gender colors override image */
 .boy {
-  background-color: #9ad0ff; /* baby blue */
+  background-image: none;
+  background-color: #9ad0ff;
 }
 
 .girl {
-  background-color: #ffb6c1; /* light pink */
+  background-image: none;
+  background-color: #ffb6c1;
 }
+
 
