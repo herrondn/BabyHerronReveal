@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  transition: background-color 1s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+#countdown-container h1 {
+  font-size: 3rem;
+}
+
+#countdown {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+#reveal-container h1 {
+  font-size: 6rem;
+  color: white;
+}
+
+/* Gender colors */
+.boy {
+  background-color: #9ad0ff; /* baby blue */
+}
+
+.girl {
+  background-color: #ffb6c1; /* light pink */
+}
+
