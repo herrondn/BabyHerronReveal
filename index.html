@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <title>Gender Reveal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div id="countdown-container">
+  <div id="start-screen">
+    <button id="start-button">Tap to Start Countdown</button>
+  </div>
+
+  <div id="countdown-container" class="hidden">
     <h1>Gender Reveal In</h1>
     <div id="countdown"></div>
   </div>
@@ -16,9 +21,11 @@
     <h1 id="reveal-text"></h1>
   </div>
 
-  <!-- Confetti library -->
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
