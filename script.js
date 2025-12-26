@@ -6,6 +6,19 @@ const GENDER = "girl"; // "boy" or "girl"
 const revealDate = new Date("2025-12-29T21:00:00").getTime();
 // const revealDate = new Date("2025-12-22T22:15:00").getTime();
 
+/* 🖼️ Efficient background rotation */
+const TOTAL_BACKGROUNDS = 10;
+const BACKGROUND_INTERVAL_MS = 10000; // 10 seconds
+
+let currentBg = 1;
+let bgInterval = null;
+/* ⚡ Lightweight image preload */
+for (let i = 1; i <= TOTAL_BACKGROUNDS; i++) {
+  const img = new Image();
+  img.src = `background${i}.jpeg`;
+}
+
+
 const startButton = document.getElementById("start-button");
 const startScreen = document.getElementById("start-screen");
 const countdownEl = document.getElementById("countdown");
@@ -25,9 +38,20 @@ startButton.addEventListener("click", () => {
   startScreen.classList.add("hidden");
   countdownContainer.classList.remove("hidden");
 
+  startBackgroundRotation();
   fadeInMusic();
   startCountdown();
 });
+
+function startBackgroundRotation() {
+  // Set initial background
+  document.body.style.backgroundImage = `url(background${currentBg}.jpeg)`;
+
+  bgInterval = setInterval(() => {
+    currentBg = currentBg % TOTAL_BACKGROUNDS + 1;
+    document.body.style.backgroundImage = `url(background${currentBg}.jpeg)`;
+  }, BACKGROUND_INTERVAL_MS);
+}
 
 function startCountdown() {
   interval = setInterval(() => {
@@ -83,6 +107,7 @@ function fadeOutMusic() {
 
 function reveal() {
   fadeOutMusic();
+  clearInterval(bgInterval);
 
   countdownContainer.classList.add("hidden");
   revealContainer.classList.remove("hidden");
