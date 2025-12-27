@@ -12,7 +12,7 @@ body {
   justify-content: center;
 
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
 
   transition: background-image 0.5s ease-in-out;
@@ -95,7 +95,10 @@ html, body {
 }
 
 /* 📱 Mobile tweak */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  body {
+    background-position: center top;
+  }
   #registry-link {
     bottom: 15px;
     right: 15px;
