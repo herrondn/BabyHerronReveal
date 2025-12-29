@@ -1,6 +1,6 @@
 
 // 🔹 CHANGE THIS ONLY 🔹
-const GENDER = "girl"; // "boy" or "girl"
+const GENDER = null; // "boy" or "girl"
 
 // Set your reveal date/time (local time)
 // Dec 29, 9:00 PM EST = Dec 30, 02:00 UTC
