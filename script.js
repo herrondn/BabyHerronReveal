@@ -3,7 +3,8 @@
 const GENDER = "girl"; // "boy" or "girl"
 
 // Set your reveal date/time (local time)
-const revealDate = new Date("2025-12-29T21:00:00").getTime();
+// Dec 29, 9:00 PM EST = Dec 30, 02:00 UTC
+const revealDate = new Date("2025-12-30T02:00:00Z").getTime();
 // const revealDate = new Date("2025-12-22T22:15:00").getTime();
 
 /* 🖼️ Efficient background rotation */
